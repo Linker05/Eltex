@@ -1,0 +1,30 @@
+root@eltex-practice2-v33:~# STARTUP=$(journalctl --list-boots | cut -d' ' -f6-7 | tail -n 1) && journalctl -b -S "$STARTUP" -U "$(date -d "$STARTUP UTC + 20 seconds" +'%Y-%m-%d %H:%M:%S')" > practice2-1.txt
+root@eltex-practice2-v33:~# find / -name auth.log
+/var/log/auth.log
+root@eltex-practice2-v33:~# awk '{print $3,$0}' /var/log/auth.log | cut -d':' -f1,6- | sed -E 's/\[[0-9]+\]:/:/g' | sort > practice2-2.txt
+root@eltex-practice2-v33:~# cut -d':' -f1 practice2-2.txt | uniq -c | sort -rn > practice2-3.txt
+root@eltex-practice2-v33:~# awk -F ":" '$7 == "/usr/sbin/nologin" {
+  username = $1
+  uid = $3
+  get_main_group_cmd = "awk -F \":\" \"\\$3 == " uid " {print \\$1} \" /etc/group"
+  get_main_group_cmd | getline groups
+  close(get_main_group_cmd)
+  get_groups_cmd = "awk -F \":\" \"\\$4 ~ /(^|,)" username "(,|\\$)/ {print \\$1}\" /etc/group"
+  while (get_groups_cmd | getline group_name) {
+    groups = groups ";" group_name
+  }
+  close(get_groups_cmd)
+  print uid ", " username ", " groups
+}' /etc/passwd | sort -rn > practice2-4.txt
+root@eltex-practice2-v33:~# dmesg | grep kernel > practice2-5.txt
+root@eltex-practice2-v33:~# wc -l /var/log/kern.log > practice2-6.txt
+root@eltex-practice2-v33:~# awk 'BEGIN {
+  RS = ""
+  FS = "\n"
+}
+{
+  start = $1
+  cmd = $2
+  end = $4
+  printf "%s; %s; %s\n", cmd, start, end
+}' /var/log/apt/history.log > practice2-7.txt

@@ -1,0 +1,173 @@
+root@eltex-practice2-v33:~# apt install gh
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following NEW packages will be installed:
+  gh
+0 upgraded, 1 newly installed, 0 to remove and 81 not upgraded.
+Need to get 8,836 kB of archives.
+After this operation, 45.4 MB of additional disk space will be used.
+Get:1 http://ru.archive.ubuntu.com/ubuntu noble-updates/universe amd64 gh amd64 2.45.0-1ubuntu0.3 [8,836 kB]
+Fetched 8,836 kB in 1s (8,553 kB/s)
+Selecting previously unselected package gh.
+(Reading database ... 125686 files and directories currently installed.)
+Preparing to unpack .../gh_2.45.0-1ubuntu0.3_amd64.deb ...
+Unpacking gh (2.45.0-1ubuntu0.3) ...
+Setting up gh (2.45.0-1ubuntu0.3) ...
+Processing triggers for man-db (2.12.0-4build2) ...
+Scanning processes...
+Scanning candidates...
+Scanning linux images...
+
+Running kernel seems to be up-to-date.
+
+Restarting services...
+
+Service restarts being deferred:
+ /etc/needrestart/restart.d/dbus.service
+ systemctl restart systemd-logind.service
+ systemctl restart unattended-upgrades.service
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+root@eltex-practice2-v33:~# apt install git
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+git is already the newest version (1:2.43.0-1ubuntu7.3).
+git set to manually installed.
+0 upgraded, 0 newly installed, 0 to remove and 81 not upgraded.
+root@eltex-practice2-v33:~# git config --global user.name Linker05
+root@eltex-practice2-v33:~# git config --global user.email 49682936+Linker05@users.noreply.github.com
+root@eltex-practice2-v33:~# git config --global init.defaultBranch main
+root@eltex-practice2-v33:~# ssh-keygen -t ed25519 -f ~/.ssh/eltex-v33-git
+Generating public/private ed25519 key pair.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /root/.ssh/eltex-v33-git
+Your public key has been saved in /root/.ssh/eltex-v33-git.pub
+The key fingerprint is:
+SHA256:wKQlKRBzD0kFXqDw+DoEeSR1k25gwu0FM23ecclO+3o root@eltex-practice2-v33
+The key's randomart image is:
++--[ED25519 256]--+
+|B=XOOoo . .      |
+|o%=*=@ . =       |
+|=o=+* + = .      |
+|.o .o. o o       |
+| ...    S .      |
+|..         .     |
+|o         .      |
+| .       . E     |
+|          .      |
++----[SHA256]-----+
+root@eltex-practice2-v33:~# gh auth login
+? What account do you want to log into? GitHub.com
+? What is your preferred protocol for Git operations on this host? SSH
+? Upload your SSH public key to your GitHub account? /root/.ssh/eltex-v33-git.pub
+? Title for your SSH key: eltex-v33-git
+? How would you like to authenticate GitHub CLI? Login with a web browser
+
+! First copy your one-time code: 0A38-9CD2
+Press Enter to open github.com in your browser...
+! Failed opening a web browser at https://github.com/login/device
+  exec: "xdg-open,x-www-browser,www-browser,wslview": executable file not found in $PATH
+  Please try entering the URL in your browser manually
+✓ Authentication complete.
+- gh config set -h github.com git_protocol ssh
+✓ Configured git protocol
+! Authentication credentials saved in plain text
+✓ Uploaded the SSH key to your GitHub account: /root/.ssh/eltex-v33-git.pub
+✓ Logged in as Linker05
+root@eltex-practice2-v33:~# gh auth setup-git --hostname github.com
+root@eltex-practice2-v33:~# gh repo create --public Eltex
+✓ Created repository Linker05/Eltex on GitHub
+  https://github.com/Linker05/Eltex
+root@eltex-practice2-v33:~# mkdir ~/EltexRepo && cd ~/EltexRepo
+root@eltex-practice2-v33:~/EltexRepo# echo "# Репозиторий для практики Eltex" >> README.md
+root@eltex-practice2-v33:~/EltexRepo# git init
+Initialized empty Git repository in /root/EltexRepo/.git/
+root@eltex-practice2-v33:~/EltexRepo# git add README.md
+root@eltex-practice2-v33:~/EltexRepo# git commit -m "Initial commit"
+[main (root-commit) d8c5172] Initial commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+root@eltex-practice2-v33:~/EltexRepo# git branch -M main
+root@eltex-practice2-v33:~/EltexRepo# git remote add origin https://github.com/Linker05/Eltex.git
+root@eltex-practice2-v33:~/EltexRepo# git status
+On branch main
+nothing to commit, working tree clean
+root@eltex-practice2-v33:~/EltexRepo# git push -u origin main
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 285 bytes | 285.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/Linker05/Eltex.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+root@eltex-practice2-v33:~/EltexRepo# mkdir -p module1/task{1,2,3}
+root@eltex-practice2-v33:~/EltexRepo# touch module1/task{1,2,3}/placeholder
+root@eltex-practice2-v33:~/EltexRepo# git add .
+root@eltex-practice2-v33:~/EltexRepo# git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   module1/task1/placeholder
+        new file:   module1/task2/placeholder
+        new file:   module1/task3/placeholder
+root@eltex-practice2-v33:~/EltexRepo# git commit -m "Added folder hierarchy"
+[main 19f6462] Added folder hierarchy
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 module1/task1/placeholder
+ create mode 100644 module1/task2/placeholder
+ create mode 100644 module1/task3/placeholder
+root@eltex-practice2-v33:~/EltexRepo# git push
+Enumerating objects: 6, done.
+Counting objects: 100% (6/6), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (5/5), 395 bytes | 395.00 KiB/s, done.
+Total 5 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/Linker05/Eltex.git
+   d8c5172..19f6462  main -> main
+root@eltex-practice2-v33:~/EltexRepo# cd ..
+root@eltex-practice2-v33:~# mkdir ~/EltexRepo_clone
+root@eltex-practice2-v33:~# cd EltexRepo_clone/
+root@eltex-practice2-v33:~/EltexRepo_clone# git clone https://github.com/Linker05/Eltex.git .
+Cloning into '.'...
+remote: Enumerating objects: 8, done.
+remote: Counting objects: 100% (8/8), done.
+remote: Compressing objects: 100% (5/5), done.
+remote: Total 8 (delta 0), reused 8 (delta 0), pack-reused 0 (from 0)
+Receiving objects: 100% (8/8), done.
+root@eltex-practice2-v33:~/EltexRepo_clone# git fetch
+root@eltex-practice2-v33:~/EltexRepo_clone# git log origin/main
+commit 19f64625622927f13a2b379564c973473cea6bf3 (HEAD -> main, origin/main, origin/HEAD)
+Author: Linker05 <49682936+Linker05@users.noreply.github.com>
+Date:   Sun Jul 12 12:40:03 2026 +0000
+
+    Added folder hierarchy
+
+commit d8c517239a061c8f79223591eec91ef830e7a831
+Author: Linker05 <49682936+Linker05@users.noreply.github.com>
+Date:   Sun Jul 12 12:34:10 2026 +0000
+
+    Initial commit
+root@eltex-practice2-v33:~/EltexRepo_clone# rm module1/task1/placeholder
+root@eltex-practice2-v33:~/EltexRepo_clone# git commit -am "Remove placeholder to show diff"
+[main 3c65e1f] Remove placeholder to show diff
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ delete mode 100644 module1/task1/placeholder
+root@eltex-practice2-v33:~/EltexRepo_clone# git diff origin/main main
+diff --git a/module1/task1/placeholder b/module1/task1/placeholder
+deleted file mode 100644
+index e69de29..0000000
+root@eltex-practice2-v33:~/EltexRepo_clone# git merge
+Already up to date.
+

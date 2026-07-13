@@ -1,0 +1,316 @@
+eltex-v33@eltex-2026-summer-11:27> export MYUSER=eltex-v33
+eltex-v33@eltex-2026-summer-11:27> ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/eltex-v33/.ssh/id_rsa):
+Created directory '/home/eltex-v33/.ssh'.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /home/eltex-v33/.ssh/id_rsa
+Your public key has been saved in /home/eltex-v33/.ssh/id_rsa.pub
+The key fingerprint is:
+SHA256:LRieO1sQrbmVb+5nU3Yu3GL/lA9vrkE+pq45aF/KEDI eltex-v33@eltex-2026-summer
+The key's randomart image is:
++---[RSA 3072]----+
+|                 |
+|       .         |
+|      o .        |
+|     . B o       |
+|      E S .   .  |
+|       B +   oo o|
+|      + o.o .+*=.|
+|       +o=.++o=*=|
+|      .. oO*oo.BB|
++----[SHA256]-----+
+eltex-v33@eltex-2026-summer-11:27> ssh-copy-id -i /home/eltex-v33/.ssh/id_rsa.pub root@172.16.9.207
+/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/eltex-v33/.ssh/id_rsa.pub"
+The authenticity of host '172.16.9.207 (172.16.9.207)' can't be established.
+ED25519 key fingerprint is SHA256:YNVzj+RtetZfXv5XUn/CUjeEcaMD4eg3jy8EuGGIS+o.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+root@172.16.9.207's password:
+
+Number of key(s) added: 1
+
+Now try logging into the machine, with:   "ssh 'root@172.16.9.207'"
+and check to make sure that only the key(s) you wanted were added.
+
+eltex-v33@eltex-2026-summer-11:34> cat ~/.ssh/*.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDCdOkZUODXDUxin4VhqAHLFHhtoCuq/ahZnh7LtZy9kNt1+MKlu3oM8+FUoMP/quApKGFE4dtJefCp5LV7Ff/xc8LS1oDcjwhJl8PXl4MgpNRaNCozWdIZZ9v4xeHn8msZJtIHwGGReFWbWOHjnxFSR10b0+CGdMikE/4Z0LORLHusvWm9nV7sIsZLN6oFhdpdRyRGXZiv6jD0HTy4jSALPej/CxZ6NAQpoB2kDlCbwHkXPDEng50uufdJjUHIht6x2Wjcc0Itw7YDRBVKWuLdE2dNDVDK7QpED7uWXxN0bPIEL5CGh/VxNU/sCEJgQOOPiYWhEZU7nvunMkvjEWwiVd/92LYOMiFo2GCxjiv1NgHKudXg+HkHIYxcBFzAYbSe5A3cUNhDTDcSpWuJQLXV2ZQv1X+8kTYZMAI0Gjq84TZc4Z69O8ygFHgP4Tn3ZzKNY0lPlpBmgih5/c9MBCuP0h3nNh7HtJTL+TL/p9KvTk+8iR0rezyLY4B1P6hWllU= eltex-v33@eltex-2026-summer
+eltex-v33@eltex-2026-summer-11:34> ls -l ~/.ssh/*.pub
+-rw-r--r-- 1 eltex-v33 eltex-v33 581 июл  8 11:28 /home/eltex-v33/.ssh/id_rsa.pub
+eltex-v33@eltex-2026-summer-11:34> ssh root@172.16.9.207
+Welcome to Ubuntu 24.04.2 LTS (GNU/Linux 6.8.0-55-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information as of Wed Jul  8 04:35:06 AM UTC 2026
+
+  System load:  0.0                Processes:              113
+  Usage of /:   37.8% of 14.66GB   Users logged in:        1
+  Memory usage: 5%                 IPv4 address for ens18: 172.16.9.207
+  Swap usage:   0%
+
+
+Expanded Security Maintenance for Applications is not enabled.
+
+0 updates can be applied immediately.
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+
+The list of available updates is more than a week old.
+To check for new updates run: sudo apt update
+
+Last login: Wed Jul  8 04:27:26 2026 from 172.16.8.4
+root@eltex-practice2-v33:~# cat ~/.ssh/authorized_keys
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDCdOkZUODXDUxin4VhqAHLFHhtoCuq/ahZnh7LtZy9kNt1+MKlu3oM8+FUoMP/quApKGFE4dtJefCp5LV7Ff/xc8LS1oDcjwhJl8PXl4MgpNRaNCozWdIZZ9v4xeHn8msZJtIHwGGReFWbWOHjnxFSR10b0+CGdMikE/4Z0LORLHusvWm9nV7sIsZLN6oFhdpdRyRGXZiv6jD0HTy4jSALPej/CxZ6NAQpoB2kDlCbwHkXPDEng50uufdJjUHIht6x2Wjcc0Itw7YDRBVKWuLdE2dNDVDK7QpED7uWXxN0bPIEL5CGh/VxNU/sCEJgQOOPiYWhEZU7nvunMkvjEWwiVd/92LYOMiFo2GCxjiv1NgHKudXg+HkHIYxcBFzAYbSe5A3cUNhDTDcSpWuJQLXV2ZQv1X+8kTYZMAI0Gjq84TZc4Z69O8ygFHgP4Tn3ZzKNY0lPlpBmgih5/c9MBCuP0h3nNh7HtJTL+TL/p9KvTk+8iR0rezyLY4B1P6hWllU= eltex-v33@eltex-2026-summer
+root@eltex-practice2-v33:~# ls -l ~/.ssh/authorized_keys
+-rw------- 1 root root 581 Jul  8 04:30 /root/.ssh/authorized_keys
+root@eltex-practice2-v33:~# useradd -m -s /bin/bash user1
+root@eltex-practice2-v33:~# passwd user1
+New password:
+Retype new password:
+passwd: password updated successfully
+root@eltex-practice2-v33:~# adduser user2
+info: Adding user `user2' ...
+info: Selecting UID/GID from range 1000 to 59999 ...
+info: Adding new group `user2' (1002) ...
+info: Adding new user `user2' (1002) with group `user2 (1002)' ...
+info: Creating home directory `/home/user2' ...
+info: Copying files from `/etc/skel' ...
+New password:
+Retype new password:
+passwd: password updated successfully
+Changing the user information for user2
+Enter the new value, or press ENTER for the default
+        Full Name []:
+        Room Number []:
+        Work Phone []:
+        Home Phone []:
+        Other []:
+Is the information correct? [Y/n] Y
+info: Adding new user `user2' to supplemental / extra groups `users' ...
+info: Adding user `user2' to group `users' ...
+root@eltex-practice2-v33:~# adduser user3
+info: Adding user `user3' ...
+info: Selecting UID/GID from range 1000 to 59999 ...
+info: Adding new group `user3' (1003) ...
+info: Adding new user `user3' (1003) with group `user3 (1003)' ...
+info: Creating home directory `/home/user3' ...
+info: Copying files from `/etc/skel' ...
+New password:
+Retype new password:
+passwd: password updated successfully
+Changing the user information for user3
+Enter the new value, or press ENTER for the default
+        Full Name []:
+        Room Number []:
+        Work Phone []:
+        Home Phone []:
+        Other []:
+Is the information correct? [Y/n] y
+info: Adding new user `user3' to supplemental / extra groups `users' ...
+info: Adding user `user3' to group `users' ...
+root@eltex-practice2-v33:~# usermod -s /usr/sbin/nologin user3
+root@eltex-practice2-v33:~# su user3
+This account is currently not available.
+root@eltex-practice2-v33:~# su -s /bin/bash user3
+user3@eltex-practice2-v33:/root$ logout
+bash: logout: not login shell: use `exit'
+user3@eltex-practice2-v33:/root$ exit
+exit
+root@eltex-practice2-v33:~# groupadd custom
+root@eltex-practice2-v33:~# usermod -aG custom user1
+root@eltex-practice2-v33:~# usermod -aG custom user2
+root@eltex-practice2-v33:~# usermod -aG custom user3
+root@eltex-practice2-v33:~# mkdir /opt/share
+root@eltex-practice2-v33:~# chown :custom -R /opt/share
+root@eltex-practice2-v33:~# chmod g+rwx,g+s /opt/share
+root@eltex-practice2-v33:~# echo "umask 007" >> /home/user1/.profile
+root@eltex-practice2-v33:~# su - user1 -c 'touch /opt/share/user1.txt'
+root@eltex-practice2-v33:~# su - user2 -c 'touch /opt/share/user2.txt'
+root@eltex-practice2-v33:~# su - user3 -c 'touch /opt/share/user3.txt'
+This account is currently not available.
+root@eltex-practice2-v33:~# ls -l /opt/share/
+total 0
+-rw-rw---- 1 user1 custom 0 Jul  8 05:40 user1.txt
+-rw-rw-r-- 1 user2 custom 0 Jul  8 05:40 user2.txt
+root@eltex-practice2-v33:~# su - user1 -c 'rm /opt/share/user2.txt'
+root@eltex-practice2-v33:~# su - user2 -c 'rm /opt/share/user1.txt'
+root@eltex-practice2-v33:~# ls -l /opt/share/
+total 0
+root@eltex-practice2-v33:~# chmod +t /opt/share
+root@eltex-practice2-v33:~# su - user1 -c 'touch /opt/share/user1.txt'
+root@eltex-practice2-v33:~# su - user2 -c 'touch /opt/share/user2.txt'
+root@eltex-practice2-v33:~# su - user2 -c 'rm /opt/share/user1.txt'
+rm: cannot remove '/opt/share/user1.txt': Operation not permitted
+root@eltex-practice2-v33:~# su - user1 -c 'rm /opt/share/user2.txt'
+rm: cannot remove '/opt/share/user2.txt': Operation not permitted
+root@eltex-practice2-v33:~# cd /opt/share
+root@eltex-practice2-v33:/opt/share# which dmesg
+/usr/bin/dmesg
+root@eltex-practice2-v33:/opt/share# nano user2dmesg.sh
+root@eltex-practice2-v33:/opt/share# chmod u+s,ugo+rwx user2dmesg.sh
+root@eltex-practice2-v33:/opt/share# ls -l
+total 4
+-rw-rw---- 1 user1 custom  0 Jul  8 05:43 user1.txt
+-rwsrwxrwx 1 root  custom 18 Jul  8 05:51 user2dmesg.sh
+-rw-rw-r-- 1 user2 custom  0 Jul  8 05:43 user2.txt
+root@eltex-practice2-v33:/opt/share# visudo
+root@eltex-practice2-v33:~# su - user1
+user1@eltex-practice2-v33:~$ sudo dmesg | tail -n 10
+[sudo] password for user1:
+[118295.432170] systemd[1]: Starting sysstat-collect.service - system activity accounting tool...
+[118295.436575] systemd[1]: Starting systemd-timesyncd.service - Network Time Synchronization...
+[118295.438366] systemd-journald[16120]: Collecting audit messages is disabled.
+[118295.440082] systemd[1]: sysstat-collect.service: Deactivated successfully.
+[118295.440162] systemd[1]: Finished sysstat-collect.service - system activity accounting tool.
+[118295.464191] systemd[1]: Started systemd-timesyncd.service - Network Time Synchronization.
+[118295.466891] systemd[1]: fwupd-refresh.service: Deactivated successfully.
+[118295.466980] systemd[1]: Finished fwupd-refresh.service - Refresh fwupd metadata and update motd.
+[118296.026516] systemd-journald[16120]: File /var/log/journal/560b026a44d3424ea490d29e1a7e2775/system.journal corrupted or uncleanly shut down, renaming and replacing.
+[118312.060483] systemd[1]: Started systemd-journald.service - Journal Service.
+user1@eltex-practice2-v33:~$ logout
+root@eltex-practice2-v33:~# su - user2
+user2@eltex-practice2-v33:~$ cd /opt/share/
+user2@eltex-practice2-v33:/opt/share$ ./user2dmesg.sh | tail -n 10
+dmesg: read kernel buffer failed: Operation not permitted
+user2@eltex-practice2-v33:/opt/share$ logout
+root@eltex-practice2-v33:~# chage -M 10 user1
+root@eltex-practice2-v33:~# chage -M 10 user2
+root@eltex-practice2-v33:~# chage -M 10 user3
+root@eltex-practice2-v33:~# nano /etc/motd
+root@eltex-practice2-v33:~# rsync -aAX /etc/ /root/etc_backup
+root@eltex-practice2-v33:~# reboot
+eltex-v33@eltex-2026-summer-18:46> ssh root@172.16.9.207
+Welcome to Ubuntu 24.04.2 LTS (GNU/Linux 6.8.0-134-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information as of Thu Jul  9 11:45:37 AM UTC 2026
+
+  System load:  2.21               Processes:              132
+  Usage of /:   46.7% of 14.66GB   Users logged in:        0
+  Memory usage: 7%                 IPv4 address for ens18: 172.16.9.207
+  Swap usage:   0%
+
+
+Expanded Security Maintenance for Applications is not enabled.
+
+133 updates can be applied immediately.
+65 of these updates are standard security updates.
+To see these additional updates run: apt list --upgradable
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+
+Cизиков Анатолий
+Last login: Thu Jul  9 11:46:21 2026 from 172.16.8.4
+root@eltex-practice2-v33:~# apt install -y 7zip
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+Suggested packages:
+  7zip-standalone 7zip-rar
+The following NEW packages will be installed:
+  7zip
+0 upgraded, 1 newly installed, 0 to remove and 134 not upgraded.
+Need to get 1,846 kB of archives.
+After this operation, 6,306 kB of additional disk space will be used.
+Get:1 http://ru.archive.ubuntu.com/ubuntu noble/universe amd64 7zip amd64 23.01+dfsg-11 [1,846 kB]
+Fetched 1,846 kB in 1s (2,466 kB/s)
+Selecting previously unselected package 7zip.
+(Reading database ... 124703 files and directories currently installed.)
+Preparing to unpack .../7zip_23.01+dfsg-11_amd64.deb ...
+Unpacking 7zip (23.01+dfsg-11) ...
+Setting up 7zip (23.01+dfsg-11) ...
+Processing triggers for man-db (2.12.0-4build2) ...
+Error: Timeout was reached
+Scanning processes...
+Scanning linux images...
+
+Running kernel seems to be up-to-date.
+
+No services need to be restarted.
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+root@eltex-practice2-v33:~# apt install -y 7zip
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+Suggested packages:
+  bzip2-doc
+The following NEW packages will be installed:
+  bzip2
+0 upgraded, 1 newly installed, 0 to remove and 134 not upgraded.
+Need to get 34.5 kB of archives.
+After this operation, 112 kB of additional disk space will be used.
+Get:1 http://ru.archive.ubuntu.com/ubuntu noble-updates/main amd64 bzip2 amd64 1.0.8-5.1build0.1 [34.5 kB]
+Fetched 34.5 kB in 0s (89.6 kB/s)
+Selecting previously unselected package bzip2.
+(Reading database ... 124726 files and directories currently installed.)
+Preparing to unpack .../bzip2_1.0.8-5.1build0.1_amd64.deb ...
+Unpacking bzip2 (1.0.8-5.1build0.1) ...
+Setting up bzip2 (1.0.8-5.1build0.1) ...
+Processing triggers for man-db (2.12.0-4build2) ...
+Error: Timeout was reached
+Scanning processes...
+Scanning linux images...
+
+Running kernel seems to be up-to-date.
+
+No services need to be restarted.
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+root@eltex-practice2-v33:~# tar -czf etc_backup.tar.gz -C ./etc_backup .
+root@eltex-practice2-v33:~# tar -cjf etc_backup.tar.bz2 -C ./etc_backup .
+root@eltex-practice2-v33:~# tar -cf - -C ./etc_backup . | 7z a -si"etc_backup.tar" etc_backup.tar.7z
+
+7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
+ 64-bit locale=en_US.UTF-8 Threads:2 OPEN_MAX:1024
+
+Creating archive: etc_backup.tar.7z
+
+Add new data to archive: 1 file
+
+
+Files read from disk: 1
+Archive size: 486253 bytes (475 KiB)
+Everything is Ok
+
+root@eltex-practice2-v33:~# ls -lh
+total 1.6M
+drwxr-xr-x 109 root root 4.0K Jul  9 11:37 etc_backup
+-rw-r--r--   1 root root 475K Jul  9 12:55 etc_backup.tar.7z
+-rw-r--r--   1 root root 546K Jul  9 12:54 etc_backup.tar.bz2
+-rw-r--r--   1 root root 583K Jul  9 12:56 etc_backup.tar.gz
+root@eltex-practice2-v33:~# du -sh etc_backup
+6.2M    etc_backup
+root@eltex-practice2-v33:~# echo $(date +'%d-%m-%Y %T') >> /etc/motd
+root@eltex-practice2-v33:~# rsync -aAX /etc/ /root/etc_backup
+root@eltex-practice2-v33:~# tar -czf etc_backup.tar.gz -C ./etc_backup .
+root@eltex-practice2-v33:~# tar -C ./etc_backup -djf etc_backup.tar.bz2
+./motd: Mod time differs
+./motd: Size differs
+root@eltex-practice2-v33:~# mkdir -p ./etc_backup_{gzip,7zip}
+root@eltex-practice2-v33:~# 7z x etc_backup.tar.7z -so | tar -xf - -C etc_backup_7zip
+root@eltex-practice2-v33:~# tar -xzf etc_backup.tar.gz -C etc_backup_gzip
+root@eltex-practice2-v33:~# diff etc_backup_{gzip,7zip}/motd
+2d1
+< 09-07-2026 12:23:43

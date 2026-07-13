@@ -1,0 +1,71 @@
+eltex-v33@eltex-2026-summer:~$ ls
+ls           lsblk        lscpu        lsinitramfs  lsirq        lslogins     lsmod        lsof         lsusb
+lsattr       lsb_release  lsfd         lsipc        lslocks      lsmem        lsns         lspci
+eltex-v33@eltex-2026-summer:~$ $HIST
+$HISTCMD       $HISTCONTROL   $HISTFILE      $HISTFILESIZE  $HISTSIZE
+eltex-v33@eltex-2026-summer:~$ echo $HISTFILESIZE
+2000
+eltex-v33@eltex-2026-summer:~$ ls -d ~/.*
+/home/eltex-v33/.bash_history  /home/eltex-v33/.bashrc  /home/eltex-v33/.lesshst  /home/eltex-v33/.profile  /home/eltex-v33/.Xauthority
+/home/eltex-v33/.bash_logout   /home/eltex-v33/.config  /home/eltex-v33/.local    /home/eltex-v33/.viminfo
+eltex-v33@eltex-2026-summer:~$ echo "export HISTTIMEFORMAT='%d-%m-%y %T '" >> ~/.bashrc
+eltex-v33@eltex-2026-summer:~$ export HISTTIMEFORMAT='%d-%m-%y %T'
+eltex-v33@eltex-2026-summer:~$ date
+Пн 06 июл 2026 13:15:55 +07
+eltex-v33@eltex-2026-summer:~$ history | tail -n 5
+   58  06-07-26 13:08:38 ls -d ~/.*
+   59  06-07-26 13:15:12 echo "export HISTTIMEFORMAT='%d-%m-%y %T'" >> ~/.bashrc
+   60  06-07-26 13:15:37 export HISTTIMEFORMAT='%d-%m-%y %T'
+   61  06-07-26 13:15:55 date
+   62  06-07-26 13:16:06 history | tail -n 5
+eltex-v33@eltex-2026-summer:~$ tail -n 5 ~/.bash_history
+screen -s `whoami`_part2`
+screen -S `whoami`_part2`
+screen -S "`whoami`_part2" -L -Logfile "${USER}_part.log"
+screen -ls
+ls
+eltex-v33@eltex-2026-summer:~$ export PROMPT_COMMAND="history -a"
+eltex-v33@eltex-2026-summer:~$ date
+Пн 06 июл 2026 13:17:15 +07
+eltex-v33@eltex-2026-summer:~$ tail -n 5 ~/.bash_history
+tail -n 5 ~/.bash_history
+#1783318632
+export PROMPT_COMMAND="history -a"
+#1783318635
+date
+eltex-v33@eltex-2026-summer:~$ DATE=$(date +'%d-%m-%Y')
+eltex-v33@eltex-2026-summer:~$ TIME=$(date +'%T')
+eltex-v33@eltex-2026-summer:~$ DATE_TIME="$DATE $TIME"
+eltex-v33@eltex-2026-summer:~$ echo $DATE_TIME
+06-07-2026 13:19:15
+eltex-v33@eltex-2026-summer:~$ ls /{bin,sbin}/*[0-9]*
+/bin/addr2line                  /bin/grub-menulst2cfg           /bin/py3clean                    /bin/x86_64-linux-gnu-c++filt         /bin/x86_64-linux-gnu-gp-display-html  /sbin/e2label
+/bin/b2sum                      /bin/grub-mkpasswd-pbkdf2       /bin/py3compile                  /bin/x86_64-linux-gnu-cpp             /bin/x86_64-linux-gnu-gp-display-src   /sbin/e2mmpstatus
+/bin/base32                     /bin/grub-syslinux2cfg          /bin/py3versions                 /bin/x86_64-linux-gnu-cpp-12          /bin/x86_64-linux-gnu-gp-display-text  /sbin/e2scrub
+/bin/base64                     /bin/h2ph                       /bin/pydoc3                      /bin/x86_64-linux-gnu-dwp             /bin/x86_64-linux-gnu-gprof            /sbin/e2scrub_all
+/bin/bunzip2                    /bin/h2xs                       /bin/pydoc3.11                   /bin/x86_64-linux-gnu-elfedit         /bin/x86_64-linux-gnu-gprofng          /sbin/e2undo
+/bin/bzip2                      /bin/i386                       /bin/pygettext3                  /bin/x86_64-linux-gnu-gcc             /bin/x86_64-linux-gnu-ld               /sbin/e4crypt
+/bin/bzip2recover               /bin/linux32                    /bin/pygettext3.11               /bin/x86_64-linux-gnu-gcc-12          /bin/x86_64-linux-gnu-ld.bfd           /sbin/e4defrag
+/bin/c89                        /bin/linux64                    /bin/python3                     /bin/x86_64-linux-gnu-gcc-ar          /bin/x86_64-linux-gnu-ld.gold          /sbin/fsck.ext2
+/bin/c89-gcc                    /bin/lto-dump-12                /bin/python3.11                  /bin/x86_64-linux-gnu-gcc-ar-12       /bin/x86_64-linux-gnu-lto-dump         /sbin/fsck.ext3
+/bin/c99                        /bin/md5sum                     /bin/sha1sum                     /bin/x86_64-linux-gnu-gcc-nm          /bin/x86_64-linux-gnu-lto-dump-12      /sbin/fsck.ext4
+/bin/c99-gcc                    /bin/md5sum.textutils           /bin/sha224sum                   /bin/x86_64-linux-gnu-gcc-nm-12       /bin/x86_64-linux-gnu-nm               /sbin/killall5
+/bin/cpan5.36-x86_64-linux-gnu  /bin/pdb3                       /bin/sha256sum                   /bin/x86_64-linux-gnu-gcc-ranlib      /bin/x86_64-linux-gnu-objcopy          /sbin/mke2fs
+/bin/cpp-12                     /bin/pdb3.11                    /bin/sha384sum                   /bin/x86_64-linux-gnu-gcc-ranlib-12   /bin/x86_64-linux-gnu-objdump          /sbin/mkfs.ext2
+/bin/diff3                      /bin/perl5.36.0                 /bin/sha512sum                   /bin/x86_64-linux-gnu-gcov            /bin/x86_64-linux-gnu-ranlib           /sbin/mkfs.ext3
+/bin/enc2xs                     /bin/perl5.36-x86_64-linux-gnu  /bin/ssh-argv0                   /bin/x86_64-linux-gnu-gcov-12         /bin/x86_64-linux-gnu-readelf          /sbin/mkfs.ext4
+/bin/gcc-12                     /bin/ping4                      /bin/systemd-id128               /bin/x86_64-linux-gnu-gcov-dump       /bin/x86_64-linux-gnu-size             /sbin/resize2fs
+/bin/gcc-ar-12                  /bin/ping6                      /bin/traceroute6                 /bin/x86_64-linux-gnu-gcov-dump-12    /bin/x86_64-linux-gnu-strings          /sbin/tune2fs
+/bin/gcc-nm-12                  /bin/pl2pm                      /bin/traceroute6.db              /bin/x86_64-linux-gnu-gcov-tool       /bin/x86_64-linux-gnu-strip            /sbin/update-grub2
+/bin/gcc-ranlib-12              /bin/pod2html                   /bin/x86_64                      /bin/x86_64-linux-gnu-gcov-tool-12    /sbin/dumpe2fs
+/bin/gcov-12                    /bin/pod2man                    /bin/x86_64-linux-gnu-addr2line  /bin/x86_64-linux-gnu-gold            /sbin/e2freefrag
+/bin/gcov-dump-12               /bin/pod2text                   /bin/x86_64-linux-gnu-ar         /bin/x86_64-linux-gnu-gp-archive      /sbin/e2fsck
+/bin/gcov-tool-12               /bin/pod2usage                  /bin/x86_64-linux-gnu-as         /bin/x86_64-linux-gnu-gp-collect-app  /sbin/e2image
+eltex-v33@eltex-2026-summer:~$ export PS1='${USER}@${HOSTNAME}-$(date +'%H:%M')> '
+eltex-v33@eltex-2026-summer-13:24> echo "export PS1='\${USER}@\${HOSTNAME}-\$(date +'%H:%M')> '" >> ~/.bashrc
+eltex-v33@eltex-2026-summer-13:24> bash
+eltex-v33@eltex-2026-summer-13:28> exit
+exit
+eltex-v33@eltex-2026-summer-13:28> mkdir -p ~/$(date +'%Y')-{01..12}
+eltex-v33@eltex-2026-summer-13:28> ls
+2026-01  2026-02  2026-03  2026-04  2026-05  2026-06  2026-07  2026-08  2026-09  2026-10  2026-11  2026-12  eltex-v33_part.log  report_part1.txt

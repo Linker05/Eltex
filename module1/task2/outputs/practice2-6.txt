@@ -1,0 +1,1 @@
+4643 /var/log/kern.log

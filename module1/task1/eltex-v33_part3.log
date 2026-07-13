@@ -1,0 +1,30 @@
+eltex-v33@eltex-2026-summer-16:26> touch "${USER}_part3.log"
+eltex-v33@eltex-2026-summer-16:26> mkdir -p D1/D2/D3    
+eltex-v33@eltex-2026-summer-16:27> touch D1/D2/file.txt
+eltex-v33@eltex-2026-summer-16:27> echo 'dasdasdsdasdasd' > D1/D2/file.txt
+eltex-v33@eltex-2026-summer-16:27> ln D1/D2/file.txt D1/D2/D3/hard.txt
+eltex-v33@eltex-2026-summer-16:27> ln -s ~/D1/D2/file.txt D1/D2/D3/soft.txt
+eltex-v33@eltex-2026-summer-16:29> ls -l D1/D2/D3
+total 4
+-rw-r--r-- 2 eltex-v33 eltex-v33 16 июл 12 16:40 hard.txt
+lrwxrwxrwx 1 eltex-v33 eltex-v33 14 июл 12 16:40 soft.txt -> /home/eltex-v33/D1/D2/file.txt
+eltex-v33@eltex-2026-summer-16:29> mv D1/D2/file.txt D1
+eltex-v33@eltex-2026-summer-16:30> cat D1/D2/D3/hard.txt
+dasdasdsdasdasd
+eltex-v33@eltex-2026-summer-16:30> cat D1/D2/D3/soft.txt
+cat: D1/D2/D3/soft.txt: No such file or directory
+eltex-v33@eltex-2026-summer-16:30> rm -r D1/D2
+eltex-v33@eltex-2026-summer-16:33> find / -type f -size +20M -exec du -sh {} + 2> /dev/null > ~/"${USER}_part3_gt20M.log"
+eltex-v33@eltex-2026-summer-16:33> find ~ -type f -mtime -1
+/home/eltex-v33/eltex-v33_part3_gt20M.log
+/home/eltex-v33/D1/file.txt
+/home/eltex-v33/eltex-v33_part3.log
+/home/eltex-v33/.Xauthority
+eltex-v33@eltex-2026-summer-16:33> find / -name "find" 2> /dev/null
+/usr/bin/find
+/usr/share/bash-completion/completions/find
+eltex-v33@eltex-2026-summer-16:34> file /usr/bin/find
+/usr/bin/find: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=5545a6c7162d325fbe5ffabcbfe4e5521b66ce70, for GNU/Linux 3.2.0, stripped
+eltex-v33@eltex-2026-summer-16:34> file /boot/initrd.img*
+/boot/initrd.img-6.1.0-44-amd64: ASCII cpio archive (SVR4 with no CRC)
+/boot/initrd.img-6.1.0-50-amd64: ASCII cpio archive (SVR4 with no CRC)
