@@ -1,14 +1,6 @@
 #ifndef INC_2_SHARED_H
 #define INC_2_SHARED_H
 
-#ifdef DEBUG
-#define DEBUG_ONLY(...) __VA_ARGS__
-#define DEBUG_LOG(fd, ...) fprintf(fd, __VA_ARGS__)
-#else
-#define DEBUG_ONLY(...)
-#define DEBUG_LOG(fd, ...)
-#endif
-
 // do-while to protect macro from usage with else block
 #define TRY_IO_OR_FAIL_IMPL(operation, failure_msg, exit_handler) \
     do { \
@@ -34,6 +26,9 @@
 
 #define STR_IMPL(x) #x
 #define STR(x) STR_IMPL(x)
+
+// Macro for errors not using errno
+#define CERROR(fmt, ...) fprintf(stderr, fmt "\n", ##__VA_ARGS__)
 
 typedef struct HelloMsg {
     pid_t pid;

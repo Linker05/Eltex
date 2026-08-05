@@ -96,7 +96,7 @@ void listener(const key_t broker_key, const int topics_count, const char **topic
                     break;
                 }
                 default: {
-                    perror("unknown message type");
+                    CERROR("unknown message type");
                     exit(EXIT_FAILURE);
                 }
             }

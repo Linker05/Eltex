@@ -14,16 +14,11 @@
 #define MSG_PRIORITY 1
 #define MAX_MSG_LENGTH 2048
 
-#ifdef DEBUG
-#define DEBUG_ONLY(...) __VA_ARGS__
-#define DEBUG_LOG(fd, ...) fprintf(fd, __VA_ARGS__)
-#else
-#define DEBUG_ONLY(...)
-#define DEBUG_LOG(fd, ...)
-#endif
-
 #define STR_IMPL(x) #x
 #define STR(x) STR_IMPL(x)
+
+// Macro for errors not using errno
+#define CERROR(fmt, ...) fprintf(stderr, fmt "\n", ##__VA_ARGS__)
 
 // do-while to protect macro from usage with else block
 #define TRY_IO_OR_FAIL_IMPL(operation, failure_msg, exit_handler) \
@@ -90,7 +85,7 @@ static void start_session(const mqd_t rd, const mqd_t wd, char *buffer) {
         while (mq_receive(rd, buffer, MAX_MSG_LENGTH + 1, &priority) != -1) {
             // If first message not handshake it is an error
             if (priority != HANDSHAKE_PRIORITY) {
-                perror("read handshake");
+                CERROR("read handshake");
                 exit(EXIT_FAILURE);
             }
             is_session_up = 1;

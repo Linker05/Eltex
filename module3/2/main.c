@@ -67,7 +67,7 @@ void run(const int topics_count, const char **topics) {
             break;
         }
         default: {
-            perror("unknown mode");
+            CERROR("unknown mode");
             exit(EXIT_FAILURE);
         }
     }
@@ -79,7 +79,7 @@ int main(const int argc, const char **argv) {
         exit(EXIT_SUCCESS);
     }
     if (!is_flag(argv[1])) {
-        perror("first argument must be a flag b, p or s");
+        CERROR("first argument must be a flag b, p or s\n");
         exit(EXIT_FAILURE);
     }
 
@@ -94,20 +94,20 @@ int main(const int argc, const char **argv) {
         mode = BROKER;
     } else {
         // Unknown flag
-        perror("invalid flag");
+        CERROR("invalid flag");
         exit(EXIT_FAILURE);
     }
 
     if (mode == BROKER && argc != 2 ||
         mode == LISTENER && argc < 3 ||
         mode == PUBLISHER && argc != 3) {
-        perror("invalid args count for mode");
+        CERROR("invalid args count for mode");
         exit(EXIT_FAILURE);
     }
 
     for (int i = 2; i < argc; i++) {
         if (argv[i][0] == '\0' || is_flag(argv[i])) {
-            perror("invalid parameter");
+            CERROR("invalid parameter");
             exit(EXIT_FAILURE);
         }
     }

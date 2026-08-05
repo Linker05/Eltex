@@ -19,6 +19,9 @@
 #define DEBUG_LOG(fd, ...)
 #endif
 
+// Macro for errors not using errno
+#define CERROR(fmt, ...) fprintf(stderr, fmt "\n", ##__VA_ARGS__)
+
 // do-while to protect macro from usage with else block
 #define TRY_IO_OR_FAIL_IMPL(operation, failure_msg, exit_handler) \
     do { \
@@ -103,7 +106,7 @@ static void reader(const int rd, const int wd, const char **files) {
     DEBUG_LOG(log, "wait handshake\n"); 
     TRY_IO_OR_FAIL(read(rd, buffer, 1024), "read handshake");
     if (strcmp(buffer, "ready") != 0) {
-        perror("child fail");
+        CERROR("child fail");
         exit(EXIT_FAILURE);
     }
 
@@ -187,13 +190,13 @@ int main(const int argc, const char **argv) {
             }
             i++;
             if (is_flag(argv[i])) {
-                perror("flag -p must have value");
+                CERROR("flag -p must have value");
                 exit(EXIT_FAILURE);
             }
             pipe_file = argv[i];
         } else {
             // Unknown flah
-            perror("invalid flag");
+            CERROR("invalid flag");
             exit(EXIT_FAILURE);
         }
     }
