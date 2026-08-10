@@ -1,0 +1,24 @@
+R4#  sh ip route
+Codes: C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+R    192.168.10.0/24 [120/6] via 172.16.0.2, 00:00:01, FastEthernet1/0
+     172.16.0.0/16 is variably subnetted, 7 subnets, 2 masks
+R       172.16.30.0/29 [120/2] via 172.16.0.2, 00:00:01, FastEthernet1/0
+R       172.16.20.0/30 [120/6] via 172.16.0.2, 00:00:01, FastEthernet1/0
+R       172.16.12.0/30 [120/6] via 172.16.0.2, 00:00:01, FastEthernet1/0
+R       172.16.10.0/30 [120/6] via 172.16.0.2, 00:00:01, FastEthernet1/0
+R       172.16.11.0/30 [120/6] via 172.16.0.2, 00:00:01, FastEthernet1/0
+C       172.16.0.0/30 is directly connected, FastEthernet1/0
+R       172.16.1.0/30 [120/1] via 172.16.0.2, 00:00:03, FastEthernet1/0
+R    192.168.11.0/24 [120/6] via 172.16.0.2, 00:00:03, FastEthernet1/0
+R    192.168.20.0/24 [120/6] via 172.16.0.2, 00:00:03, FastEthernet1/0
+C    192.168.0.0/24 is directly connected, FastEthernet0/0
+R    192.168.1.0/24 [120/1] via 172.16.0.2, 00:00:03, FastEthernet1/0
